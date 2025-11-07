@@ -1,0 +1,312 @@
+/* Arquivo CSS responsivo e totalmente comentado.
+   Atualizado para preservar o fundo em gradiente e melhorar a aparência no celular.
+   Cada linha tem um comentário explicativo em português para facilitar o entendimento. */
+
+/* ===== RESET GLOBAL ===== */
+* {
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura/altura do elemento */
+    margin: 0; /* Remove margens padrão do navegador para todos os elementos */
+    padding: 0; /* Remove espaçamentos internos padrão do navegador */
+}
+
+/* ===== CONFIGURAÇÕES DO BODY ===== */
+body {
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da janela (útil para o fundo em gradiente) */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Pilha de fontes legível e moderna */
+    color: #111; /* Cor principal do texto (preto suave) */
+    /* Fundo em gradiente verde-azulado que deve sempre aparecer por trás dos containers */
+    background: linear-gradient(135deg, #95e598 0%, #bee9e9 100%);
+    background-attachment: fixed; /* Faz o gradiente ficar fixo enquanto rola a página */
+    -webkit-font-smoothing: antialiased; /* Suaviza a renderização da fonte em WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Suaviza a renderização da fonte em Firefox/mac */
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.principal {
+    margin: 18px auto; /* Margem superior/inferior e centraliza horizontalmente */
+    width: min(1100px, 96%); /* Largura máxima 1100px ou 96% da largura da tela */
+    /* Usamos um fundo SEMI-TRANSPARENTE para permitir que o gradiente do body continue visível atrás do container */
+    background-color: rgba(223, 243, 223, 0.85); /* Verde-claro sem cobrir totalmente o gradiente */
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 1.25rem; /* Espaçamento interno do container */
+    display: flex; /* Define layout flexível */
+    flex-direction: column; /* Alinha os itens em coluna dentro do container */
+    gap: 1rem; /* Espaço vertical entre elementos filhos */
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06); /* Sombra levemente mais visível para destacar sobre o fundo */
+    font-size: 20px; /* Tamanho base da fonte utilizado neste container */
+}
+
+/* ===== CLASSES DE TEXTO ===== */
+.txt1, .txt2 {
+  padding: 0.5rem; /* Espaçamento interno para manter o texto confortável */
+}
+
+.txt1 h2, .txt2 h2 {
+  margin-bottom: 0.25rem; /* Espaço abaixo do título */
+  margin-top: 0.25rem; /* Espaço acima do título */
+  font-size: clamp(1rem, 2.2vw, 1.25rem); /* Tamanho de fonte responsivo entre 1rem e 1.25rem */
+}
+
+.txt1 p, .txt2 p {
+  margin-bottom: 0.9rem; /* Espaço entre parágrafos */
+  line-height: 1.6; /* Altura de linha para leitura confortável */
+  font-size: clamp(0.95rem, 1.7vw, 1.05rem); /* Fonte responsiva */
+  text-align: justify; /* Justifica o texto para alinhamento nas duas margens */
+}
+
+/* ===== H2 GLOBAL ===== */
+h2 {
+    text-align: center; /* Centraliza todos os h2 por padrão */
+    color: #0a9711; /* Cor verde forte para os títulos */
+    font-size: 2.2rem; /* Tamanho do h2 ajustado para ser bom em desktop e mobile */
+    margin: 0.5rem 0; /* Espaçamento acima e abaixo do título */
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+    /* Mantemos um cabeçalho sólido (sem transparência) para leitura do texto */
+    background: linear-gradient(90deg,#006400 0%, #2b8a2b 100%); /* Gradiente verde mais elegante que combina com o fundo */
+    padding: clamp(0.5rem, 2.5vw, 1rem); /* Padding responsivo */
+    text-align: center; /* Centraliza o conteúdo textual dentro do header */
+    position: relative; /* Permite posicionar elementos com position: absolute dentro do header */
+    border-bottom-left-radius: 20px; /* Arredonda canto inferior esquerdo */
+    border-bottom-right-radius: 20px; /* Arredonda canto inferior direito */
+    display: flex; /* Usa flexbox para alinhar itens no header */
+    align-items: center; /* Centraliza verticalmente os itens do header */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo principal */
+    gap: 1rem; /* Espaço entre elementos dentro do header */
+}
+
+/* ===== TÍTULO DENTRO DO HEADER ===== */
+header h1 {
+    font-size: clamp(1rem, 4vw, 1.6rem); /* Tamanho responsivo */
+    color: #fff; /* Texto em branco */
+    font-family: cursive; /* Fonte com aparência manuscrita */
+    margin: 0; /* Remove margem padrão */
+    line-height: 1; /* Altura de linha compacta */
+    text-align: center; /* Centraliza o texto do h1 */
+}
+
+/* ===== BOTÃO DIREITO ===== */
+.btn {
+    background: rgba(4,66,7,0.95); /* Verde escuro opaco para bom contraste */
+    padding: 10px 16px; /* Espaçamento interno do botão */
+    text-decoration: none; /* Remove sublinhado caso seja um link */
+    font-family: "DM Sans", sans-serif; /* Fonte do botão */
+    font-size: 0.9rem; /* Tamanho do texto do botão */
+    color: white; /* Cor do texto do botão */
+    border-radius: 20px; /* Bordas arredondadas no botão */
+    transition: 0.25s all; /* Transição suave em alterações visuais */
+    font-weight: bold; /* Texto em negrito */
+    position: absolute; /* Posiciona o botão de forma absoluta dentro do header */
+    right: 1rem; /* Distância da borda direita do header */
+    top: 50%; /* Posiciona verticalmente no meio do header */
+    transform: translateY(-50%); /* Ajusta para centralização vertical exata */
+    box-shadow: 0 2px 6px rgba(1, 1, 1, 0.12); /* Sombra sutil para destaque */
+}
+
+.btn:hover {
+    background: #8edd90; /* Muda a cor do botão ao passar o mouse */
+    transform: translateY(-50%) scale(1.03); /* Pequeno aumento do botão mantendo centralização */
+    color: black; /* Cor do texto muda ao hover */
+    cursor: pointer; /* Mostra o ponteiro para indicar que é clicável */
+}
+
+/* ===== BOTÃO VOLTAR (ESQUERDA) ===== */
+.voltar {
+    position: absolute; /* Posiciona o elemento de voltar dentro do header */
+    left: 1rem; /* Encostado à esquerda */
+    top: 50%; /* Centraliza verticalmente no header */
+    transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+    display: inline-block; /* Faz com que o link se comporte como um bloco inline */
+}
+
+/* ===== IMAGEM DO BOTÃO VOLTAR ===== */
+.voltar img {
+    width: 48px; /* Define largura da imagem do botão voltar (ajustável) */
+    height: auto; /* Mantém a proporção original da imagem */
+    display: block; /* Remove espaços inline indesejados */
+    transition: transform 0.18s ease, filter 0.18s ease; /* Transição suave em transform e filter */
+}
+
+.voltar:hover img {
+    transform: scale(1.06); /* Aumenta levemente a imagem ao passar o mouse */
+    filter: brightness(1.06); /* Aumenta o brilho para destaque */
+    cursor: pointer; /* Indica que a imagem é clicável */
+}
+
+/* ===== HERO / BANNER PRINCIPAL ===== */
+.hero {
+    display: flex; /* Usa flexbox para organizar conteúdo na área hero */
+    justify-content: center; /* Centraliza horizontalmente os elementos dentro da hero */
+    align-items: center; /* Centraliza verticalmente os elementos dentro da hero */
+    width: 100%; /* Ocupa 100% da largura do container pai */
+    height: 420px; /* Altura para telas maiores */
+    gap: 2rem; /* Espaçamento entre as caixas de imagem e texto */
+    background-color: rgba(255,255,255,0.95); /* Fundo branco quase opaco para destacar conteúdo sem cortar o gradiente atrás */
+    margin-bottom: 20px; /* Espaço abaixo da hero */
+    border-radius: 8px; /* Arredonda cantos da hero */
+    padding: 1rem; /* Padding interno */
+}
+
+.hero2 {
+    width: 100%; /* Ocupa toda a largura disponível */
+    overflow: hidden; /* Esconde o que extrapola o container */
+    border-radius: 6px; /* Arredonda cantos da hero2 */
+}
+
+.hero2 img {
+    display: block; /* Remove espaçamento inline */
+    width: 100%; /* Imagem ocupa 100% da largura do seu container */
+    height: auto; /* Mantém proporção da imagem */
+    max-width: 100%; /* Evita que a imagem ultrapasse o container */
+    object-fit: cover; /* Cobre o espaço do container sem distorcer */
+    object-position: center; /* Centraliza a região importante da imagem */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06); /* Sombra sutil para a imagem */
+    margin: 0; /* Remove margens extras */
+    transition: transform 0.4s ease; /* Suaviza transformações da imagem */
+}
+
+.hero2 img.limited-height {
+    max-height: 48vh; /* Limita a altura a 48% da viewport height */
+    width: auto; /* Ajusta largura automaticamente mantendo proporção */
+    margin-left: auto; /* Centraliza horizontalmente quando necessário */
+    margin-right: auto; /* Centraliza horizontalmente quando necessário */
+}
+
+/* ===== BOX DE IMAGEM E TEXTO ===== */
+.box-img {
+    display: flex; /* Flex para permitir centralização interna */
+    justify-content: center; /* Centraliza a imagem dentro da box */
+    width: 35%; /* Ocupa 35% da largura da hero em telas grandes */
+    height: 90%; /* Altura relativa à hero */
+}
+
+.box-img1 {
+    display: flex; /* Mesma ideia da .box-img, para outro layout */
+    justify-content: center; /* Centraliza a imagem */
+    width: 43%; /* Ocupa 43% da largura em layout alternativo */
+    height: 90%; /* Altura relativa */
+}
+
+.responsiva {
+    max-width: 100%; /* Garante que elementos com esta classe não ultrapassem o container */
+    height: auto; /* Mantém a proporção */
+}
+
+.box-txt {
+    display: flex; /* Flex para organizar o conteúdo textual */
+    flex-flow: row wrap; /* Itens em linha que podem quebrar para próxima linha se necessário */
+    align-items: center; /* Centraliza verticalmente os itens */
+    width: 62%; /* Ocupa 62% da largura da hero em telas grandes */
+    height: 90%; /* Altura relativa */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.box-txt1 {
+    display: flex; /* Flex para o layout de texto alternativo */
+    flex-flow: row wrap; /* Permite quebra de linha entre elementos */
+    align-items: center; /* Alinha os itens verticalmente */
+    width: 55%; /* Largura específica para este layout */
+    height: 90%; /* Altura relativa */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.box-txt p {
+    text-align: justify; /* Justifica parágrafos dentro do box-txt */
+    color: #111; /* Cor do texto */
+}
+
+.box-txt span {
+    color: gray; /* Texto secundário em cinza */
+    letter-spacing: 3px; /* Espaçamento entre letras para estilo */
+    text-transform: uppercase; /* Força o texto a ficar em maiúsculas */
+}
+
+/* ===== MEDIA QUERIES PARA RESPONSIVIDADE (CELULAR) ===== */
+@media (max-width: 480px) {
+    .principal {
+        width: calc(100% - 24px); /* Usa quase toda a largura da tela com pequenas margens laterais */
+        margin: 12px auto; /* Menos margem vertical para aproveitar mais espaço */
+        padding: 0.9rem; /* Reduz padding para economizar espaço */
+        font-size: 15px; /* Diminui o tamanho base da fonte para caber no mobile */
+        border-radius: 10px; /* Arredondamento um pouco menor no mobile */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Tamanho do h2 reduzido para caber em telas pequenas */
+        margin: 0.4rem 0; /* Ajuste de espaçamento para mobile */
+    }
+
+    header {
+        padding: 0.55rem 0.8rem; /* Padding menor no topo para economizar espaço */
+        gap: 0.4rem; /* Reduz gap entre elementos do header */
+    }
+
+    header h1 {
+        font-size: 1rem; /* Tamanho do h1 reduzido no mobile */
+    }
+
+    .btn {
+        right: 0.6rem; /* Diminui a distância da borda direita */
+        padding: 7px 10px; /* Botão mais compacto */
+        font-size: 0.82rem; /* Texto do botão ligeiramente menor */
+    }
+
+    .voltar img {
+        width: 40px; /* Diminuir largura da imagem do botão voltar no mobile */
+    }
+
+    .hero {
+        flex-direction: column; /* Empilha imagem e texto verticalmente */
+        align-items: stretch; /* Faz com que elementos internos ocupem largura total */
+        height: auto; /* Altura automática para evitar cortes em telas pequenas */
+        gap: 0.9rem; /* Espaçamento entre imagem e texto reduzido */
+        padding: 0.6rem; /* Padding interno menor */
+    }
+
+    .box-img, .box-img1 {
+        width: 100%; /* Ocupa toda a largura disponível no mobile */
+        height: auto; /* Altura automática baseada no conteúdo/imagem */
+    }
+
+    .hero2 img, .responsiva {
+        max-width: 100%; /* Garante que imagens não ultrapassem a largura da tela */
+        height: auto; /* Mantém proporção das imagens */
+    }
+
+    .box-txt, .box-txt1 {
+        width: 100%; /* Texto ocupa a largura completa para melhor leitura */
+        padding: 8px; /* Padding menor para economizar espaço */
+    }
+
+    .txt1 p, .txt2 p {
+        font-size: 0.95rem; /* Fonte adequada para mobile */
+        line-height: 1.45; /* Mantém boa legibilidade */
+    }
+
+    .btn:hover {
+        transform: translateY(-50%) scale(1); /* Evita escala extra no mobile */
+    }
+}
+
+@media (max-width: 900px) {
+    .principal {
+        width: min(900px, 96%); /* Limita a largura máxima em tablets */
+        padding: 1rem; /* Padding um pouco menor que no desktop */
+        font-size: 17px; /* Fonte intermediária */
+    }
+
+    .hero {
+        height: auto; /* Altura automática em telas intermediárias */
+        gap: 1.2rem; /* Espaçamento confortável */
+    }
+
+    .box-img {
+        width: 45%; /* Imagem ocupa mais espaço em telas médias */
+    }
+
+    .box-txt {
+        width: 55%; /* Texto ocupa o espaço restante */
+    }
+}
